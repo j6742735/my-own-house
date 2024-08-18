@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMR Reader</title>
+    <title>OMR Sheet Reader</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,12 +17,24 @@
         input[type="file"] {
             margin-bottom: 10px;
         }
+        canvas {
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .region {
+            border: 2px dashed #f00;
+            position: absolute;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
     <h1>OMR Sheet Reader</h1>
     <input type="file" id="fileInput" accept="image/*">
-    <canvas id="canvas" style="display: none;"></canvas>
+    <canvas id="canvas"></canvas>
+    <div id="regionsContainer"></div>
+    <button id="applyButton">Apply Coordinates</button>
+    <button id="processButton">Process OMR</button>
     <p id="result"></p>
 
     <script src="script.js"></script>
