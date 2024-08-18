@@ -26,8 +26,9 @@ function processImage(img) {
     // Define the grid for the OMR card
     const rows = 20;  // Number of rows
     const cols = 5;   // Number of columns
-    const rowHeight = (img.height - 40) / rows;  // Assuming margin of 20px top and bottom
-    const colWidth = (img.width - 40) / cols;    // Assuming margin of 20px left and right
+    const margin = 20; // Margin around the grid
+    const rowHeight = (img.height - margin * 2) / rows;
+    const colWidth = (img.width - margin * 2) / cols;
 
     const result = [];
 
@@ -35,8 +36,8 @@ function processImage(img) {
         let selectedOption = -1; // -1 indicates no selection
         for (let j = 0; j < cols; j++) {
             const region = {
-                x: 20 + j * colWidth,
-                y: 20 + i * rowHeight,
+                x: margin + j * colWidth,
+                y: margin + i * rowHeight,
                 width: colWidth,
                 height: rowHeight
             };
